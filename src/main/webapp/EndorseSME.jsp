@@ -5,7 +5,6 @@
 <html>
 <style>
 body{
-background-image:url("https://about.bankofamerica.com/assets/images/heritage-site-migration/trivia_flagscape.jpg");
 no-repeat center center fixed;
         -webkit-background-size: cover;
 		-moz-background-size: cover;
@@ -111,7 +110,7 @@ hr {
 	<div class="container">
 		<input type="text" name="firstName"/><br/>
 		<input type="text" name="lastName"/><br/>
-		<input type="text" name="NBKID"/><br/>
+		<input type="text" name="ID"/><br/>
 		<input type="text" name="rating"/><br/>
 		<input type="text" name="skills"/><br/>
 		<input type="text" name="yourname"/><br/>
@@ -131,7 +130,7 @@ hr {
       <form:input path="lastName" name="lastName" id="lastname" />
 
       <label><b>SME NBKID</b></label>
-      <form:input path="NBKID" placeholder="Enter nbk" name="NBKID" id="nbkid" />
+      <form:input path="ID" placeholder="Enter id" name="ID" id="id" />
       
       <label><b>Endorsing on Topic</b>
         <form:input path="skills" placeholder="Enter skill" name="skill" id="skill" />

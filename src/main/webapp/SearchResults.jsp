@@ -13,7 +13,7 @@ System.out.println("")
 <tr>
 	<td>Employee Id</td>
 	<td>Employee Name</td>
-	<td>Employee NBK</td>
+	<td>Employee ID</td>
 	<td>Employee skills</td>
 </tr>
 
@@ -21,7 +21,7 @@ System.out.println("")
 	<tr>
 		<td>${sme.firstName}</td>
 		<td>${sme.lastName}</td>
-		<td>${sme.NBKID}</td>
+		<td>${sme.ID}</td>
 		<td>${sme.skills}</td>
 	</tr>
 	</c:forEach>

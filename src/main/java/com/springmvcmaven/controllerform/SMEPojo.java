@@ -4,7 +4,7 @@ package com.springmvcmaven.controllerform;
 public class SMEPojo {
 	String firstName;
 	String lastName;
-	String NBKID;
+	String ID;
 	String skills;
 	Integer rating;
 	String yourname;
@@ -21,11 +21,11 @@ public class SMEPojo {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public String getNBKID() {
-		return NBKID;
+	public String getID() {
+		return ID;
 	}
-	public void setNBKID(String nBKID) {
-		NBKID = nBKID;
+	public void setID(String id) {
+		ID = id;
 	}
 	public String getSkills() {
 		return skills;

@@ -53,7 +53,7 @@ public class LoginController {
 		SMEPojo smePojo = new SMEPojo();
 		smePojo.setFirstName(request.getParameter("firstName"));
 		smePojo.setLastName(request.getParameter("lastName"));
-		smePojo.setNBKID(request.getParameter("NBKID"));
+		smePojo.setID(request.getParameter("ID"));
 		smePojo.setRating(Integer.valueOf(request.getParameter("rating")));
 		smePojo.setSkills(request.getParameter("skills"));
 		smePojo.setYourname(request.getParameter("yourname"));

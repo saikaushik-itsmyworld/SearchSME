@@ -20,9 +20,9 @@ public class SearchDAOImpl {
 		System.out.println("#####insertSMETopic method 1#####");
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/helpsme", 
+			Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/sme", 
 					"root",
-					"Lasyam12");
+					"********");
 			System.out.println("#####insertSMETopic method 2 Databse connection estrablicshed#####");
 			PreparedStatement ps = con.prepareStatement("select * from search_table where Search_Name = ?");
 			ps.setString(1, topic);
@@ -68,15 +68,15 @@ public class SearchDAOImpl {
 			SMEPojo pojo = new SMEPojo();
 			pojo.setFirstName("sai"+i);
 			pojo.setLastName("kaushik"+i);
-			pojo.setNBKID("121212"+i);
+			pojo.setID("121212"+i);
 			pojo.setSkills("Devops"+i);
 			smeList.add(pojo);
 		}*/
 		try {
 				Class.forName("com.mysql.jdbc.Driver");
-			Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/helpsme", 
+			Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/sme", 
 					"root",
-					"Lasyam12");
+					"*******");
 			Statement st = con.createStatement();
 			String query = "select * from sme";
 			System.out.println(query);
@@ -85,7 +85,7 @@ public class SearchDAOImpl {
 				SMEPojo pojo = new SMEPojo();
 				pojo.setFirstName(rs.getString(1));
 				pojo.setLastName(rs.getString(2));
-				pojo.setNBKID(rs.getString(3));
+				pojo.setID(rs.getString(3));
 				pojo.setSkills(rs.getString(4));
 				smeList.add(pojo);
 				/*System.out.println();
@@ -107,13 +107,13 @@ public class SearchDAOImpl {
 		int id = 0;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/helpsme", 
+			Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/sme", 
 					"root",
-					"Lasyam12");
+					"*******");
 			PreparedStatement ps = con.prepareStatement("insert into SME values(?,?,?,?,?,?)");
 			ps.setString(1, pojo.getFirstName());
 			ps.setString(2, pojo.getLastName());
-			ps.setString(3, pojo.getNBKID());
+			ps.setString(3, pojo.getID());
 			ps.setString(4, pojo.getSkills());
 			ps.setInt(5, pojo.getRating());
 			ps.setString(6, pojo.getYourname());
@@ -142,9 +142,9 @@ public class SearchDAOImpl {
 		StringBuffer searchString = new StringBuffer("");
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/helpsme", 
+			Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/sme", 
 					"root",
-					"Lasyam12");
+					"*********");
 			//2
 			Statement st = con.createStatement();
 			ResultSet rs = st.executeQuery("select Search_Name from search_table order by Search_Count desc limit 3");
