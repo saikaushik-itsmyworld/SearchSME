@@ -36,17 +36,27 @@ agent any
             sh 'mvn clean install'
          }
       }
+   stage ('SonarQube Analysis'){
+    steps{
+     dir("project_templates/java_project_template"){
+      withSonarQubeEnv('sonarqube') {
+       sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
+      }
+     }
+    }
+   }
       stage('archive') {
       steps {
         parallel(
           "Junit": {
-            junit 'target/surefire-reports/*.xml'
+            //junit 'target/surefire-reports/*.xml'
             echo "Running Junit"
             
           },
           "Archive": {
-            archiveArtifacts(artifacts: 'target/SearchSME.jar', onlyIfSuccessful: true, fingerprint: true)
-            archiveArtifacts(artifacts: 'target/SearchSME*javadoc.jar', fingerprint: true)
+            //archiveArtifacts(artifacts: 'target/SearchSME.jar', onlyIfSuccessful: true, fingerprint: true)
+            //archiveArtifacts(artifacts: 'target/SearchSME*javadoc.jar', fingerprint: true)
+           echo "Archive"
             
           }
         )
