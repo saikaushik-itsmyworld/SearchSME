@@ -38,13 +38,13 @@ agent any
       }
    stage ('SonarQube Analysis'){
     steps{
-     dir("project_templates/java_project_template"){
+     //dir("project_templates/java_project_template"){
       withSonarQubeEnv('sonarqube') {
        sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
       }
      }
     }
-   }
+   
       stage('archive') {
       steps {
         parallel(
