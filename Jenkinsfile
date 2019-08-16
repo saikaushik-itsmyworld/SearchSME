@@ -16,8 +16,8 @@ agent any
       }
      stage('Install dependencies'){ 
          steps {
-          sh 'npm config ls'
-          sh 'npm install'
+          //sh 'npm config ls'
+          //sh 'npm install'
             echo "Npm Packages has been installed"
          }
       }
