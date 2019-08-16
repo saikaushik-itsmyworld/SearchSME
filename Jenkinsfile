@@ -40,13 +40,13 @@ agent any
       steps {
         parallel(
           "Junit": {
-            //junit 'target/surefire-reports/*.xml'
+            junit 'target/surefire-reports/*.xml'
             echo "Running Junit"
             
           },
           "Archive": {
-            archiveArtifacts(artifacts: '/tmp/SearchSME.jar', onlyIfSuccessful: true, fingerprint: true)
-            archiveArtifacts(artifacts: '/tmp/SearchSME*javadoc.jar', fingerprint: true)
+            archiveArtifacts(artifacts: 'target/SearchSME.jar', onlyIfSuccessful: true, fingerprint: true)
+            archiveArtifacts(artifacts: 'target/SearchSME*javadoc.jar', fingerprint: true)
             
           }
         )
