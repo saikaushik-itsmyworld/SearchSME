@@ -33,14 +33,25 @@ agent any
       stage('Build'){
          steps {
             echo "Build the Code"
+            sh 'mvn clean install'
          }
       }
-      stage('unit Testing'){
-         steps {
-          echo"unit testing"
-          //sh 'npm test'
-         }
+      stage('archive') {
+      steps {
+        parallel(
+          "Junit": {
+            //junit 'target/surefire-reports/*.xml'
+            echo "Running Junit"
+            
+          },
+          "Archive": {
+            archiveArtifacts(artifacts: '/tmp/SearchSME.jar', onlyIfSuccessful: true, fingerprint: true)
+            archiveArtifacts(artifacts: '/tmp/SearchSME*javadoc.jar', fingerprint: true)
+            
+          }
+        )
       }
+    }
       stage('Deploy'){
          steps {
             echo"deploying the code"
