@@ -34,6 +34,7 @@ agent any
          steps {
             echo "Build the Code"
             sh 'mvn clean install'
+        
          }
       }
    stage ('SonarQube Analysis'){
@@ -41,6 +42,10 @@ agent any
      //dir("project_templates/java_project_template"){
       withSonarQubeEnv('sonarqube') {
        sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
+       sh '''mvn sonar:sonar \
+          -Dsonar.projectKey=HelpSME \
+          -Dsonar.host.url=http://192.168.1.186:9000 \
+          -Dsonar.login=6cf451fa4e118614d412b1b0712db5c67f773dcd'''
       }
      }
     }
